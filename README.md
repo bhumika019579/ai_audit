@@ -26,6 +26,7 @@ An AI subscription audit tool that detects overspending across your AI tools and
 - Compares plans against costs using **hardcoded, up-to-date pricing data**
 - Detects overspending — flags plans where the user is paying more than needed
 - Recommends a cheaper alternative **only if** it is also better suited for the use case
+- Generates an **AI-powered summary** via Groq API  — a 4-5 line review of the user's current plan vs the recommended plan
 - Generates a per-tool breakdown with an overall audit verdict
 - Creates a **unique shareable URL** for every audit report
 
@@ -33,11 +34,11 @@ An AI subscription audit tool that detects overspending across your AI tools and
 
 ## Supported AI Tools
 
-ChatGpt
-Claude
-Gemini
-Cursor
-Github Copilot
+ChatGpt,
+Claude,
+Gemini,
+Cursor,
+Github Copilot,
 Perplexity
 
 > Pricing data is hardcoded in `aiTools.js` and reflects current USD pricing as of the time of writing.
@@ -52,6 +53,7 @@ Perplexity
 | Backend | Node.js, Express.js |
 | Database | PostgreSQL (Neon) |
 | ORM | Prisma |
+| AI Summary | Groq API — `llama3-8b-8192` |
 | Pricing Data | Hardcoded — `aiTools.js` |
 | Unique Report URLs | nanoid |
 | Frontend Deployment | Vercel |
@@ -83,6 +85,7 @@ Create `server/.env`:
 
 ```env
 DATABASE_URL=your_neon_postgres_connection_string
+GROQ_API_KEY=your_groq_api_key
 PORT=5000
 ```
 
@@ -109,4 +112,49 @@ npm run dev
 ```
 
 App runs at `http://localhost:5173`
+
+---
+
+## Environment Variables
+
+### Backend
+
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `GROQ_API_KEY` | API key from [console.groq.com](https://console.groq.com) |
+| `PORT` | Express server port (default: 5000) |
+
+### Frontend
+
+| Variable | Description |
+|---|---|
+| `VITE_API_URL` | Backend base URL |
+
+---
+
+## Project Structure
+
+```
+ai-audit/
+├── client/                  # React + Vite frontend
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       └── data/
+│           └── aiTools.js   # Hardcoded pricing & plan data
+│
+└── server/                  # Node.js + Express backend
+    ├── prisma/
+    │   └── schema.prisma
+    ├── routes/
+    └── controllers/
+```
+
+---
+
+## Author
+
+**Bhumika Chanchlani** — built with curiosity ✨
+
 
