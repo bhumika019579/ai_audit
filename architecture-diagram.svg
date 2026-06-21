@@ -1,0 +1,120 @@
+<svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+
+  <!-- White background -->
+  <rect width="920" height="520" fill="#ffffff"/>
+
+  <!-- Subtle grid (Lucidchart style) -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 Z" fill="#1a73e8"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 Z" fill="#1e8e3e"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 Z" fill="#e37400"/>
+    </marker>
+    <marker id="arrowGrey" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 Z" fill="#5f6368"/>
+    </marker>
+  </defs>
+  <rect width="920" height="520" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="460" y="40" text-anchor="middle" fill="#202124" font-size="18" font-weight="700">AI Auditor — System Architecture</text>
+
+  <!-- ── USER ── -->
+  <circle cx="68" cy="190" r="20" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+  <text x="68" y="195" text-anchor="middle" fill="#1a73e8" font-size="16">👤</text>
+  <text x="68" y="225" text-anchor="middle" fill="#202124" font-size="12" font-weight="600">User</text>
+
+  <!-- ── FRONTEND ── -->
+  <rect x="148" y="155" width="160" height="85" rx="6" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+  <rect x="148" y="155" width="160" height="28" rx="6" fill="#1a73e8"/>
+  <rect x="148" y="175" width="160" height="8" fill="#1a73e8"/>
+  <text x="228" y="174" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">React + Vite</text>
+  <text x="228" y="205" text-anchor="middle" fill="#1a73e8" font-size="11" font-weight="600">Frontend</text>
+  <text x="228" y="222" text-anchor="middle" fill="#5f6368" font-size="10">Deployed on Vercel</text>
+
+  <!-- ── BACKEND ── -->
+  <rect x="370" y="155" width="170" height="85" rx="6" fill="#e6f4ea" stroke="#1e8e3e" stroke-width="2"/>
+  <rect x="370" y="155" width="170" height="28" rx="6" fill="#1e8e3e"/>
+  <rect x="370" y="175" width="170" height="8" fill="#1e8e3e"/>
+  <text x="455" y="174" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">Node.js + Express</text>
+  <text x="455" y="205" text-anchor="middle" fill="#1e8e3e" font-size="11" font-weight="600">Backend</text>
+  <text x="455" y="222" text-anchor="middle" fill="#5f6368" font-size="10">Deployed on Render</text>
+
+  <!-- ── POSTGRESQL (cylinder) ── -->
+  <ellipse cx="690" cy="168" rx="80" ry="15" fill="#fce8e6" stroke="#e37400" stroke-width="2"/>
+  <rect x="610" y="168" width="160" height="60" fill="#fce8e6"/>
+  <line x1="610" y1="168" x2="610" y2="228" stroke="#e37400" stroke-width="2"/>
+  <line x1="770" y1="168" x2="770" y2="228" stroke="#e37400" stroke-width="2"/>
+  <ellipse cx="690" cy="228" rx="80" ry="15" fill="#fce8e6" stroke="#e37400" stroke-width="2"/>
+  <text x="690" y="198" text-anchor="middle" fill="#e37400" font-size="12" font-weight="700">PostgreSQL</text>
+  <text x="690" y="215" text-anchor="middle" fill="#5f6368" font-size="10">Neon · Prisma ORM</text>
+
+  <!-- ── aiTools.js (document shape) ── -->
+  <path d="M610,335 L610,450 L775,450 L775,350 L760,335 Z" fill="#f1f3f4" stroke="#5f6368" stroke-width="2"/>
+  <path d="M760,335 L760,350 L775,350" fill="none" stroke="#5f6368" stroke-width="2"/>
+  <!-- folded corner fill -->
+  <path d="M760,335 L760,350 L775,350 L760,335 Z" fill="#dadce0"/>
+  <text x="692" y="376" text-anchor="middle" fill="#202124" font-size="13" font-weight="700">aiTools.js</text>
+  <text x="692" y="396" text-anchor="middle" fill="#5f6368" font-size="10">Hardcoded Pricing Data</text>
+  <line x1="630" y1="408" x2="758" y2="408" stroke="#dadce0" stroke-width="1"/>
+  <text x="692" y="422" text-anchor="middle" fill="#80868b" font-size="9">ChatGPT · Claude · Gemini</text>
+  <text x="692" y="438" text-anchor="middle" fill="#80868b" font-size="9">Cursor · Copilot · Perplexity</text>
+
+  <!-- ══ ARROWS ══ -->
+
+  <!-- User → Frontend: fills form -->
+  <line x1="90" y1="192" x2="146" y2="192" stroke="#1a73e8" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+  <text x="118" y="185" text-anchor="middle" fill="#1a73e8" font-size="9">fills form</text>
+
+  <!-- Frontend → Backend: POST /audit -->
+  <line x1="308" y1="185" x2="368" y2="185" stroke="#1e8e3e" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="338" y="178" text-anchor="middle" fill="#1e8e3e" font-size="9">POST /audit</text>
+
+  <!-- Backend → Frontend: report + share URL -->
+  <path d="M370,208 Q338,230 308,208" fill="none" stroke="#1a73e8" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrowBlue)"/>
+  <text x="338" y="242" text-anchor="middle" fill="#1a73e8" font-size="9">report + share URL</text>
+
+  <!-- Frontend → Backend: GET /audit/:id -->
+  <path d="M308,165 Q338,145 370,165" fill="none" stroke="#1e8e3e" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrowGreen)"/>
+  <text x="338" y="142" text-anchor="middle" fill="#1e8e3e" font-size="9">GET /audit/:id</text>
+
+  <!-- Backend → PostgreSQL: save report -->
+  <line x1="540" y1="185" x2="608" y2="185" stroke="#e37400" stroke-width="1.8" marker-end="url(#arrowOrange)"/>
+  <text x="574" y="178" text-anchor="middle" fill="#e37400" font-size="9">save report</text>
+
+  <!-- PostgreSQL → Backend: fetch report -->
+  <path d="M610,208 Q574,226 542,208" fill="none" stroke="#e37400" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrowOrange)"/>
+  <text x="574" y="236" text-anchor="middle" fill="#e37400" font-size="9">fetch report</text>
+
+  <!-- Backend → aiTools.js: reads pricing data -->
+  <path d="M543,240 Q610,305 660,335" fill="none" stroke="#5f6368" stroke-width="1.8" marker-end="url(#arrowGrey)"/>
+  <text x="585" y="303" text-anchor="middle" fill="#5f6368" font-size="9">reads pricing data</text>
+
+  <!-- User share link -->
+  <path d="M86,275 Q125,330 150,230" fill="none" stroke="#80868b" stroke-width="1.4" stroke-dasharray="5,3" marker-end="url(#arrowGrey)"/>
+  <text x="112" y="335" text-anchor="middle" fill="#80868b" font-size="8">visits share link</text>
+
+  <!-- ── LEGEND ── -->
+  <rect x="18" y="360" width="130" height="138" rx="6" fill="#f8f9fa" stroke="#dadce0" stroke-width="1.5"/>
+  <text x="83" y="380" text-anchor="middle" fill="#202124" font-size="11" font-weight="700">Legend</text>
+  <rect x="28" y="390" width="12" height="12" rx="2" fill="#e8f0fe" stroke="#1a73e8" stroke-width="1.5"/>
+  <text x="48" y="401" fill="#202124" font-size="10">Frontend</text>
+  <rect x="28" y="410" width="12" height="12" rx="2" fill="#e6f4ea" stroke="#1e8e3e" stroke-width="1.5"/>
+  <text x="48" y="421" fill="#202124" font-size="10">Backend</text>
+  <rect x="28" y="430" width="12" height="12" rx="2" fill="#fce8e6" stroke="#e37400" stroke-width="1.5"/>
+  <text x="48" y="441" fill="#202124" font-size="10">Database</text>
+  <rect x="28" y="450" width="12" height="12" rx="2" fill="#f1f3f4" stroke="#5f6368" stroke-width="1.5"/>
+  <text x="48" y="461" fill="#202124" font-size="10">Local File</text>
+  <line x1="28" y1="474" x2="52" y2="474" stroke="#5f6368" stroke-width="1.8"/>
+  <text x="60" y="478" fill="#202124" font-size="9">request</text>
+  <line x1="28" y1="488" x2="52" y2="488" stroke="#5f6368" stroke-width="1.8" stroke-dasharray="4,2"/>
+  <text x="60" y="492" fill="#202124" font-size="9">response</text>
+
+</svg>
